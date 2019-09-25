@@ -55,6 +55,7 @@ function(response) {
   var date = data[i].datetime;
   var rightTime = moment(date, "dddd, MMMM Do YYYY, h:mm:ss a").format('MM/DD/YYYY');
   console.log("Venue Date: " + date);
+  console.log("-------------------------------------------------")
 
 }
 })
