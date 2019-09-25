@@ -12,6 +12,10 @@ var userCommand =  process.argv[2];
 function movieThis (movieName){
     var axios = require("axios");
 
+    if(!movieName){
+      movieName = "Mr. Nobody"
+    }
+
 axios.get("http://www.omdbapi.com/?t="  + movieName + "&y=&plot=short&apikey=trilogy").then(
   function(response) {
     
@@ -78,18 +82,27 @@ function(response) {
 }
 
 function spotify(songName){
-console.log(keys)
+
+  if(!songName){
+    songName = "The sign"
+  }
+
     var spotify = new Spotify(keys.spotify);
 
        
       spotify.search({ type: 'track', query: songName }, function(err, data) {
-          
-
+        var response = data.tracks
+      
+       
         if (err) {
           return console.log('Error occurred: ' + err);
         }
        
-      console.log(data.tracks.items[0]); 
+      console.log("Song Name: " + data.tracks.items[0].name); 
+      console.log("Artist's Name: " +data.tracks.items[0].artists[0].name); 
+      console.log("Spotify URL:" + data.tracks.items[0].external_urls.spotify); 
+      console.log("Album: " + data.tracks.items[0].album.name); 
+      console.log("---------------------------------------------------")
       });
 
 
