@@ -53,8 +53,8 @@ function(response) {
   console.log("Venue name:" + data[i].venue.name);
   console.log("venue location: " + data[i].venue.region);
   var date = data[i].datetime;
-  var rightTime = moment(date, "dddd, MMMM Do YYYY, h:mm:ss a").format('MM/DD/YYYY');
-  console.log("Venue Date: " + date);
+  var rightTime = moment(date).format('MM/DD/YYYY');
+  console.log("Venue Date: " + rightTime);
   console.log("-------------------------------------------------")
 
 }
